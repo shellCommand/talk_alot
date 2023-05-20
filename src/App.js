@@ -1,11 +1,9 @@
-import './App.css';
+import ListHeader from './components/ListHeader'
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-      <h1>TalkAlot</h1>
-      </header>
+      <ListHeader listName={'🥸 TalkAlot'} />
     </div>
   )
 }
