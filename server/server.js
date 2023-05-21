@@ -3,18 +3,19 @@ const express = require('express')
 const app = express()
 const pool = require('./db')
 
-app.get('/', (req, res) => {
-  res.send('hola mundo')
-})
+// app.get('/', (req, res) => {
+//   res.send('hola mundo')
+// })
+
 
 //get all messages
-// app.get('/messages', (req, res) => {
-//   try {
-//     const messages = pool.query('SELECT * FROM messages')
-//     res.json(messages.rows)
-//   } catch (err) {
-//     console.error(error)
-//   }
-// })
+app.get('/messages', async (req, res) => {
+  try {
+    const messages = await pool.query('SELECT * FROM messages')
+    res.json(messages.rows)
+  } catch (err) {
+    console.error(err)
+  }
+})
 
 app.listen(PORT, ()=> console.log(`Server running on PORT ${PORT}`))
