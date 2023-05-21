@@ -26,7 +26,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <ListHeader listName={'🥸 TalkAlot'} />
+      <ListHeader listName={'TalkAlot'} />
       {sortedMessages?.map((message) => <ListItem key={message.id} message={message}/>)}
     </div>
   )
