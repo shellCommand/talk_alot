@@ -12,8 +12,8 @@ app.use(cors())
 
 //get all messages
 app.get('/messages', async (req, res) => {
-  const userEmail = 'gitResetHead@pm.me'
-  const userEmail2 = 'yodiggity93@gmail.com'
+  // const { userEmail } = req.params
+  // const { userEmail } = 'gitResetHead@pm.me'
   try {
     const messages = await pool.query('SELECT * FROM messages')
     // const messages = await pool.query('SELECT * FROM messages WHERE user_email = $1', [userEmail])
