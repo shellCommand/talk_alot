@@ -14,7 +14,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "if-env TYPE=server && (cd server && npm install) || (npm install)"
+    "build": "if-env TYPE=server && (cd server && npm install) || (npm install)",
     "server": "node ./server/server.js",
     "client": "npm start",
     "eject": "react-scripts eject"
@@ -36,5 +36,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
+  }
 }
