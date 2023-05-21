@@ -10,8 +10,11 @@ const pool = require('./db')
 
 //get all messages
 app.get('/messages', async (req, res) => {
+  const userEmail = 'gitResetHead@pm.me'
+  const userEmail2 = 'yodiggity93@gmail.com'
   try {
     const messages = await pool.query('SELECT * FROM messages')
+    // const messages = await pool.query('SELECT * FROM messages WHERE user_email = $1', [userEmail])
     res.json(messages.rows)
   } catch (err) {
     console.error(err)
