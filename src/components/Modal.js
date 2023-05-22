@@ -12,7 +12,7 @@ const Modal = () => {
   })
 
   const handleChange = (e) => {
-    const {name, value } = e.target
+    const { name, value } = e.target
     setData(data => ({
       ...data,
       [name] : value
@@ -33,7 +33,7 @@ const Modal = () => {
               maxLength={5000}
               placeholder='Type away...'
               name='title'
-              value={''}
+              value={data.title}
               onChange={handleChange}
              />
              <br/>
