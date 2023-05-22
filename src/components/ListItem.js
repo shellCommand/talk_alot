@@ -3,7 +3,7 @@ import TickIcon from './TickIcon'
 import Modal from './Modal'
 import ReadMessage from './ReadMessage'
 
-const ListItem = ({message}) => {
+const ListItem = ({ message, getData }) => {
 const [showModal, setShowModal] = useState(false)
   return (
     <li className="List-Item">
@@ -15,7 +15,7 @@ const [showModal, setShowModal] = useState(false)
           <button className='edit' onClick={() => setShowModal(true)}>EDIT</button>
           <button className='delete'>DELETE</button>
         </div>
-        {showModal && <Modal mode={'Edit'} setShowModal={setShowModal} message={message} />}
+        {showModal && <Modal mode={'Edit'} setShowModal={setShowModal} message={message} getData={getData} />}
       </div>
 
     </li>

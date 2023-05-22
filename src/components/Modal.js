@@ -1,6 +1,6 @@
 import { useState } from 'react'
 
-const Modal = ({ mode, setShowModal, message }) => {
+const Modal = ({ mode, setShowModal, getData, message }) => {
   const editMode = mode === 'Edit' ? true : false
   // console.log(mode, message)
 
@@ -18,7 +18,11 @@ const Modal = ({ mode, setShowModal, message }) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })
-      console.log('RESPONSE', response)
+      if (response.status === 200) {
+        console.log('worked')
+        setShowModal(false)
+        getData()
+      }
     } catch(err) {
       console.error(err)
     }
