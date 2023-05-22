@@ -1,18 +1,33 @@
+import { useState } from 'react'
+
 const Modal = () => {
+  const editMode = 'create'
+  const [data, setData] = useState({
+    user_email: '',
+    title: '',
+    // date: new Date()
+    date: editMode ? '' : new Date()
+  })
+
   let mode = 'Create'
-  const handleChange = () => {
-    console.log('changing')
+  const handleChange = (e) => {
+    const {name, value } = e.target
+    setData(data => ({
+      ...data,
+      [name] : value
+    }))
+    console.log(data)
   }
 
   return (
     <div className='overlay'>
       <div className='modal'>
-        <div>
-          <h3>{mode} new message</h3>
+        <div className='form-title-container'>
+          <h3>{mode} message</h3>
           <button>X</button>
         </div>
-          <form className='form-title-container'>
-            <input
+          <form>
+            <input className='message-input'
               required
               maxLength={5000}
               placeholder='Type away...'
