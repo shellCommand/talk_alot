@@ -1,15 +1,28 @@
 import { useState } from 'react'
 
 const Modal = ({ mode, setShowModal, message }) => {
-  // const mode = 'create'
   const editMode = mode === 'Edit' ? true : false
-  console.log(mode, message)
+  // console.log(mode, message)
+
   const [data, setData] = useState({
-    user_email: editMode ? message.user_email : '',
+    user_email: editMode ? message.user_email : 'kanye@test.com',
     title: editMode ? message.title : '',
-    // date: new Date()
     date: editMode ? '' : new Date(),
   })
+
+  const postData = async (e) => {
+    e.preventDefault(e)
+    try {
+      const response = await fetch(`http://localhost:8000/messages`, {
+        method: "POST",
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+      })
+      console.log('RESPONSE', response)
+    } catch(err) {
+      console.error(err)
+    }
+  }
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -37,7 +50,7 @@ const Modal = ({ mode, setShowModal, message }) => {
               onChange={handleChange}
              />
              <br/>
-            <input className={mode} type='submit'/>
+            <input className={mode} type='submit' onClick={editMode ? '' : postData}/>
           </form>
       </div>
     </div>
