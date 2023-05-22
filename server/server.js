@@ -15,7 +15,8 @@ app.get('/messages', async (req, res) => {
   // const { userEmail } = req.params
   // const { userEmail } = 'gitResetHead@pm.me'
   try {
-    const messages = await pool.query('SELECT * FROM messages')
+    const messages = await pool.query('SELECT * FROM messages LIMIT 1')
+    // const messages = await pool.query('SELECT * FROM messages')
     // const messages = await pool.query('SELECT * FROM messages WHERE user_email = $1', [userEmail])
     res.json(messages.rows)
   } catch (err) {
