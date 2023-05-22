@@ -1,7 +1,9 @@
 import { useState } from 'react'
 
 const Modal = () => {
-  const editMode = 'create'
+  const mode = 'create'
+  const editMode = mode === 'edit' ? true : false
+
   const [data, setData] = useState({
     user_email: '',
     title: '',
@@ -9,9 +11,8 @@ const Modal = () => {
     date: editMode ? '' : new Date()
   })
 
-  let mode = 'Create'
   const handleChange = (e) => {
-    const {name, value } = e.target
+    const { name, value } = e.target
     setData(data => ({
       ...data,
       [name] : value
@@ -32,7 +33,7 @@ const Modal = () => {
               maxLength={5000}
               placeholder='Type away...'
               name='title'
-              value={''}
+              value={data.title}
               onChange={handleChange}
              />
              <br/>
