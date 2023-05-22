@@ -5,7 +5,6 @@ import ReadMessage from './ReadMessage'
 
 const ListItem = ({message}) => {
 const [showModal, setShowModal] = useState(false)
-
   return (
     <li className="List-Item">
       <div className='message-container'>
@@ -16,7 +15,7 @@ const [showModal, setShowModal] = useState(false)
           <button className='edit' onClick={() => setShowModal(true)}>EDIT</button>
           <button className='delete'>DELETE</button>
         </div>
-        {showModal && <Modal mode={'Edit'} setShowModal={setShowModal}/>}
+        {showModal && <Modal mode={'Edit'} setShowModal={setShowModal} message={message} />}
       </div>
 
     </li>
