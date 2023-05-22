@@ -41,5 +41,18 @@ app.post('/messages', async(req, res) => {
   }
 })
 
+//edit a message
+app.put('/messages/:id', async(req, res) => {
+  const { id } = req.params
+  const { user_email, title, date } = req.body
+  try {
+    const editMessages = await pool.query('UPDATE messages SET user_email = $1, title = $2, date = $3 WHERE id = $4;', [user_email, title, date, id])
+    res.json(editMessages)
+    console.log('EDIT MESSAGES', res.json(editMessages))
+  } catch(err) {
+    console.error(err)
+  }
+})
+
 
 app.listen(PORT, ()=> console.log(`Server running on PORT ${PORT}`))

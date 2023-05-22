@@ -14,7 +14,7 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
     e.preventDefault(e)
     try {
       const response = await fetch(`http://localhost:8000/messages`, {
-        method: "POST",
+        method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
       })
@@ -27,6 +27,24 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
       console.error(err)
     }
   }
+
+const editData = async (e) => {
+  e.preventDefault()
+  try {
+    const response = await fetch(`http://localhost:8000/messages/${message.id}`, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(data)
+    })
+      if (response.status === 200) {
+        setShowModal(false)
+        getData()
+      }
+  } catch(err) {
+    console.error(err)
+  }
+}
+
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -54,7 +72,7 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
               onChange={handleChange}
              />
              <br/>
-            <input className={mode} type='submit' onClick={editMode ? '' : postData}/>
+            <input className={mode} type='submit' onClick={editMode ? editData : postData}/>
           </form>
       </div>
     </div>
