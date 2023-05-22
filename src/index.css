@@ -153,3 +153,13 @@ li {
   border-radius: 10px;
   box-shadow: rgba(0,0,0,0.05) 0 6px 24px 0, rgba(0,0,0,0.08) 0 0 0 1px;
 }
+
+.form-title-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.form-title-container button {
+  border: none!important;
+  background-color: transparent;
+}

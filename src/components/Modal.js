@@ -7,11 +7,11 @@ const Modal = () => {
   return (
     <div className='overlay'>
       <div className='modal'>
-        <div>
+        <div className='form-title-container'>
           <h3>{mode} new message</h3>
           <button>X</button>
         </div>
-          <form className='form-title-container'>
+          <form>
             <input
               required
               maxLength={5000}
