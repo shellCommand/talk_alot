@@ -18,6 +18,8 @@ body {
 
 .button-container {
   display: flex;
+  justify-content: flex-end;
+  padding-bottom: 5px;
   align-items: center;
 }
 
@@ -32,6 +34,10 @@ body {
 
 .button-container button {
   cursor: pointer;
+}
+
+.bi bi-check2-circle {
+  margine-left: 5px;
 }
 
 
@@ -120,7 +126,7 @@ body {
   overflow-wrap: break-word;
 
   /* display: flex;
-  justify-content: space-between; */
+  justify-content: flex-end; */
  }
 
 .user-name {
@@ -134,7 +140,9 @@ li {
 
 .date {
   font-size: 8px;
-  margin-left: 5px;
+  margin-right: 5px;
+  display: flex;
+  justify-content: flex-end;
 }
 
 /* Modal */
