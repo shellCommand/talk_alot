@@ -63,7 +63,7 @@ const editData = async (e) => {
           <button onClick={() => setShowModal(false)}>X</button>
         </div>
           <form>
-            <input className='message-input'
+            <textarea className='message-input'
               required
               maxLength={5000}
               placeholder='Type away...'
