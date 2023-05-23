@@ -1,10 +1,13 @@
 import ListHeader from './components/ListHeader'
 import { useEffect, useState } from 'react'
 import ListItem from './components/ListItem'
+import Auth from './components/Auth'
 
 const App = () => {
   const [messages, setMessages] = useState(null)
   // const userEmail = 'gitResetHead@pm.me'
+
+  const authToken = false
 
   const getData = async () => {
     try {
@@ -26,8 +29,12 @@ const App = () => {
 
   return (
     <div className="App">
+    {!authToken && <Auth/>}
+    {authToken &&
+      <>
       <ListHeader listName={'TalkAlot'} getData={getData}/>
       {sortedMessages?.map((message) => <ListItem key={message.id} message={message} getData={getData}/>)}
+      </>}
     </div>
   )
 }
