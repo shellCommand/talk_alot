@@ -129,6 +129,7 @@ body {
 .user-name {
   color: #6b51d8;
   font-size: 20px;
+  margin-left: 10px;
 }
 
 li {
@@ -218,8 +219,6 @@ li {
   padding: 20px;
 
 }
-
-
 
 .auth-input {
   margin-bottom: 10px;
