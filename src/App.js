@@ -20,7 +20,10 @@ const App = () => {
     }
   }
 
-  useEffect(() => getData, [])
+  // useEffect(() => {
+  //   if (AuthToken) {
+  //     getData()
+  //   }},[])
 
   console.log(messages)
 
