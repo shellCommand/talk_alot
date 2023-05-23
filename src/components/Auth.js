@@ -1,25 +1,23 @@
 import { useState } from 'react'
 
 const Auth = () => {
-  const [isLogIn, setIsLogin] = useState(true)
+  const [isLogIn, setIsLogIn] = useState(true)
   const [error, setError] = useState(null)
-  // const isLogIn = true
 
   const viewLogin = (status) => {
     setError(null)
-    setIsLogin(status)
+    setIsLogIn(status)
   }
-
 
   return (
     <div className='auth-container'>
       <div className='auth-container-box'>
         <form>
           <h2>{isLogIn ? 'Please log in' : 'Please sign up'}</h2>
-          <input type='email' placeholder='Email'/>
-          <input type='password' placeholder='Password'/>
-          {!isLogIn && <input type='password' placeholder='Confirm password'/>}
-          <input type='submit' className='create'/>
+          <input type='email' className='auth-input' placeholder='Email'/>
+          <input type='password' className='auth-input' placeholder='Password'/>
+          {!isLogIn && <input type='password' className='auth-input' placeholder='Confirm password'/>}
+          <input type='submit' className=' auth-submit create'/>
           {error && <p>{error}</p>}
         </form>
         <div className='auth-options'>

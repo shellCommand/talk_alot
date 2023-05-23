@@ -30,9 +30,6 @@ body {
   background-color: transparent;
   font-size: 10px;
   border: 1.5px solid;
-}
-
-.button-container button {
   cursor: pointer;
 }
 
@@ -198,4 +195,46 @@ li {
 
 .modal label {
   font-size: 13px;
+}
+/* Auth modal */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+}
+
+.auth-container-box {
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: rgba(0,0,0,0.05) 0 6px 24px. rgba(0,0,0,0.08) 0 0 0 1px;
+}
+
+.auth-container-box form {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  padding: 20px;
+}
+
+.auth-input {
+  margin-bottom: 10px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1.5px solid rgb(230, 232, 236);
+  height: 25px;
+}
+
+button {
+  margin: 0 5px;
+  padding: 5px 10px;
+  border-radius: 12px;
+  background-color: transparent;
+  font-size: 10px;
+  border: 1.5px solid;
+  cursor: pointer;
+}
+
+.auth-submit {
+  border-radius: 10px;
 }
