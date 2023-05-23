@@ -223,9 +223,10 @@ li {
   border-radius: 12px;
   border: 1.5px solid rgb(230, 232, 236);
   height: 25px;
+  background-color: aliceblue;
 }
 
-button {
+.auth-options button {
   margin: 0 5px;
   padding: 5px 10px;
   border-radius: 12px;
@@ -237,4 +238,5 @@ button {
 
 .auth-submit {
   border-radius: 10px;
+  height: 52px;
 }
