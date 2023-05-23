@@ -7,7 +7,7 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
   const [data, setData] = useState({
     user_email: editMode ? message.user_email : 'kanye@test.com',
     title: editMode ? message.title : '',
-    date: editMode ? '' : new Date(),
+    date: editMode ? new Date() : '',
   })
 
   const postData = async (e) => {
@@ -63,7 +63,7 @@ const editData = async (e) => {
           <button onClick={() => setShowModal(false)}>X</button>
         </div>
           <form>
-            <input className='message-input'
+            <textarea className='message-input'
               required
               maxLength={5000}
               placeholder='Type away...'
