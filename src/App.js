@@ -7,7 +7,7 @@ import { useCookies} from 'react-cookie'
 const App = () => {
   const [ cookies, setCookie, removeCookie] = useCookies(null)
   const authToken = cookies.AuthToken
-  // const userEmail = cookies.Email
+  const userEmail = cookies.Email
   const [messages, setMessages] = useState(null)
   // const authToken = false
 
@@ -37,6 +37,7 @@ const App = () => {
     {!authToken && <Auth/>}
     {authToken &&
       <>
+      <p className='user-email'>Welcome back {userEmail}</p>
       <ListHeader listName={'TalkAlot'} getData={getData}/>
       {sortedMessages?.map((message) => <ListItem key={message.id} message={message} getData={getData}/>)}
       </>}

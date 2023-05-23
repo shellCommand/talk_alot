@@ -9,7 +9,7 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
   const [data, setData] = useState({
     user_email: editMode ? message.user_email : cookies.Email,
     title: editMode ? message.title : '',
-    date: editMode ? message.date() : new Date(),
+    date: editMode ? new Date() : new Date(),
   })
 
   const postData = async (e) => {

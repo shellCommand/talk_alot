@@ -18,11 +18,11 @@ const [showModal, setShowModal] = useState(false)
     }
   }
 
+  // <TickIcon/>
   return (
     <li className="List-Item">
       <div className='message-container'>
       <p className='date'>{message.date.split('T')[0]}</p>
-      <TickIcon/>
         <p className='messages'><span className='user-name'>{message.user_email}</span>:  {message.title}</p>
         <div className='button-container'>
           <button className='edit' onClick={() => setShowModal(true)}>EDIT</button>
