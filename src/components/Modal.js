@@ -1,13 +1,15 @@
 import { useState } from 'react'
+import { useCookies } from 'react-cookie'
 
 const Modal = ({ mode, setShowModal, getData, message }) => {
+  const [cookies, setCookie, removeCookie] = useCookies(null)
   const editMode = mode === 'Edit' ? true : false
   // console.log(mode, message)
 
   const [data, setData] = useState({
-    user_email: editMode ? message.user_email : 'kanye@test.com',
+    user_email: editMode ? message.user_email : cookies.Email,
     title: editMode ? message.title : '',
-    date: editMode ? new Date() : new Date(),
+    date: editMode ? message.date() : new Date(),
   })
 
   const postData = async (e) => {

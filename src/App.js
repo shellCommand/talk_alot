@@ -2,12 +2,14 @@ import ListHeader from './components/ListHeader'
 import { useEffect, useState } from 'react'
 import ListItem from './components/ListItem'
 import Auth from './components/Auth'
+import { useCookies} from 'react-cookie'
 
 const App = () => {
+  const [ cookies, setCookie, removeCookie] = useCookies(null)
+  const authToken = cookies.AuthToken
+  // const userEmail = cookies.Email
   const [messages, setMessages] = useState(null)
-  // const userEmail = 'gitResetHead@pm.me'
-
-  const authToken = false
+  // const authToken = false
 
   const getData = async () => {
     try {
