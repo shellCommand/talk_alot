@@ -49,7 +49,7 @@ const Auth = () => {
           <input
             type='email'
             className='auth-input'
-            placeholder='Email'
+            placeholder="Username"
             onChange={(e) => setEmail(e.target.value)}
           />
           <input
