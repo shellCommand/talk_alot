@@ -13,7 +13,7 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
   const postData = async (e) => {
     e.preventDefault(e)
     try {
-      const response = await fetch(`http://localhost:8000/messages`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/messages`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
@@ -31,7 +31,7 @@ const Modal = ({ mode, setShowModal, getData, message }) => {
 const editData = async (e) => {
   e.preventDefault()
   try {
-    const response = await fetch(`http://localhost:8000/messages/${message.id}`, {
+    const response = await fetch(`${process.env.REACT_APP_SERVERURL}/messages/${message.id}`, {
       method: 'PUT',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify(data)
