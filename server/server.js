@@ -46,9 +46,21 @@ app.put('/messages/:id', async(req, res) => {
   const { id } = req.params
   const { user_email, title, date } = req.body
   try {
-    const editMessages = await pool.query('UPDATE messages SET user_email = $1, title = $2, date = $3 WHERE id = $4;', [user_email, title, date, id])
+    const editMessages = await pool.query('UPDATE messages SET user_email = $1, title = $2, date = $3 WHERE   id = $4;',
+      [user_email, title, date, id])
     res.json(editMessages)
     console.log('EDIT MESSAGES', res.json(editMessages))
+  } catch(err) {
+    console.error(err)
+  }
+})
+
+//delete message
+app.delete('/messages/:id', async(req, res) => {
+  const { id } = req.params
+  try {
+    const deleteMessage = await pool.query('DELETE FROM messages WHERE id = $1;', [id])
+    res.json(deleteMessage)
   } catch(err) {
     console.error(err)
   }
