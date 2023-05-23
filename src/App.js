@@ -8,7 +8,7 @@ const App = () => {
 
   const getData = async () => {
     try {
-      const res = await fetch(`http://localhost:8000/messages`)
+      const res = await fetch(`${process.env.REACT_APP_SERVERURL}/messages`)
       // const res = await fetch(`http://localhost:8000/messages${userEmail}`)
       const json = await res.json()
       setMessages(json)

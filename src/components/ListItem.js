@@ -7,7 +7,7 @@ const [showModal, setShowModal] = useState(false)
 
   const deleteItem = async() => {
     try {
-      const response = await fetch(`http://localhost:8000/messages/${message.id}`, {
+      const response = await fetch(`${process.env.REACT_APP_SERVERURL}/messages/${message.id}`, {
         method: 'DELETE'
       })
       if (response.status === 200) {
