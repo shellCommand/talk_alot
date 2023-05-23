@@ -4,6 +4,8 @@ const { v4: uuidv4} = require('uuid')
 const app = express()
 const cors = require('cors')
 const pool = require('./db')
+const bcrypt = require('bcrypt')
+const jwt = require('jsonwebtoken')
 
 app.use(cors())
 app.use(express.json())
@@ -61,6 +63,37 @@ app.delete('/messages/:id', async(req, res) => {
   try {
     const deleteMessage = await pool.query('DELETE FROM messages WHERE id = $1;', [id])
     res.json(deleteMessage)
+  } catch(err) {
+    console.error(err)
+  }
+})
+
+//signup
+app.post('/signup', async(req, res) => {
+  const { email, password } = req.body
+  const salt = bcrypt.genSaltSync(10)
+  const hashedPassword = bcrypt.hashSync(password, salt)
+
+  try {
+    const signUp = await pool.query(`INSERT INTO users (email, hashed_password) VALUES($1, $2)`,
+      [email, hashedPassword])
+
+      const token = jwt.sign({ email }, 'secret', {expiresIn: '1hr'})
+
+      res.json({ email, token })
+  } catch(err) {
+    console.error(err)
+    if (err) {
+      res.json({ detail: err.detail})
+    }
+  }
+})
+
+//login
+app.post('/login', async(req, res) => {
+  const { email, password } = req.body
+  try {
+
   } catch(err) {
     console.error(err)
   }
