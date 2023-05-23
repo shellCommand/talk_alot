@@ -245,3 +245,9 @@ li {
   border-radius: 10px;
   height: 52px;
 }
+
+.user-email {
+  float: right;
+  font-size: 18px;
+  margin-bottom: -10px;
+}
