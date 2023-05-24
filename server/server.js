@@ -6,6 +6,11 @@ const cors = require('cors')
 const pool = require('./db')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+// import { createClient } from '@supabase/supabase-js'
+//
+// const supabaseUrl = 'https://midjkzsugjmjeummrcoy.supabase.co'
+// const supabaseKey = process.env.SUPABASE_KEY
+// const supabase = createClient(supabaseUrl, supabaseKey)
 
 app.use(cors())
 app.use(express.json())

@@ -3,8 +3,7 @@ CREATE DATABASE talkalot;
 CREATE TABLE messages (
   id VARCHAR(2000) PRIMARY KEY,
   user_email VARCHAR(250),
-  title VARCHAR(50),
-  progress INT,
+  title VARCHAR(5000),
   date VARCHAR(300)
 );
 
